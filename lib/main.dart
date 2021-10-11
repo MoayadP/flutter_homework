@@ -26,31 +26,59 @@ class FirstPage extends StatelessWidget {
           },
         ),
         appBar: AppBar(),
-        body: Column(
-          children: <Widget>[
-            Expanded(
-              child: GridViewers(),
-            ),
-          ],
-        ),
+        body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(children: [
+              Padding(
+                  padding: EdgeInsets.all(20),
+                  child: Text(
+                    'First Grid',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  )),
+              GridViewers1(),
+              Padding(
+                  padding: EdgeInsets.all(30),
+                  child: Text(
+                    'Second Grid',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  )),
+              GridViewers2(),
+              Padding(
+                  padding: EdgeInsets.all(30),
+                  child: Text(
+                    'Third Grid',
+                    style: TextStyle(
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  )),
+              GridViewers3(),
+            ])),
       ),
     );
   }
 }
 
-class GridViewers extends StatelessWidget {
+class GridViewers1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 3,
-      child: GridView.builder(
-          itemCount: 10,
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          itemBuilder: (ctxt, index) {
-            return FirstGrid();
-          }),
-    );
+    return SizedBox(
+        height: 250,
+        child: Expanded(
+          child: GridView.builder(
+              itemCount: 10,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              itemBuilder: (ctxt, index) {
+                return FirstGrid();
+              }),
+        ));
   }
 }
 
@@ -59,12 +87,12 @@ class FirstGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: const EdgeInsets.all(10.0),
-        width: 400,
-        height: 400,
+        margin: EdgeInsets.all(20.0),
+        // width: 50,
+        // height: 50,
         decoration: BoxDecoration(
-            color: Colors.amber,
-            border: Border.all(width: 4, color: Colors.black)),
+            color: Colors.yellow[200],
+            border: Border.all(width: 4, color: Colors.grey[900]!)),
         alignment: Alignment.center,
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           Container(
@@ -73,48 +101,108 @@ class FirstGrid extends StatelessWidget {
               // ignore: prefer_const_literals_to_create_immutables
               children: [
                 const Padding(
-                    padding: EdgeInsets.all(15),
+                    padding: EdgeInsets.all(9),
                     child: Text(
-                      'hi',
-                      style:
-                          TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                      'M&M',
+                      style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
                     ))
               ],
             ),
-            color: Colors.red,
+            color: Colors.grey[900],
           )
         ]));
   }
 }
 
-// class MyWidget extends StatelessWidget {
-//   final String title;
-//   final String content;
-//   MyWidget({required this.title, required this.content});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: const Text('hi'),
-//     );
-//   }
-// }
+class GridViewers2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 250,
+        child: Expanded(
+          child: GridView.builder(
+              itemCount: 10,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              itemBuilder: (ctxt, index) {
+                return SecondGrid();
+              }),
+        ));
+  }
+}
 
-// class GridViewer extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Expanded(
-//       flex: 4,
-//       child: GridView.builder(
-//         itemCount: 5,
-//         gridDelegate:
-//             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-//         itemBuilder: (ctxt, index) {
-//           return MyWidget(
-//             title: 'hii',
-//             content: 'hiiii',
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
+class SecondGrid extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: EdgeInsets.all(15.0),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          border: Border.all(width: 4, color: Colors.black),
+          shape: BoxShape.circle,
+          image: DecorationImage(
+              image: AssetImage(
+                'assets/images/WallX_217106_1080x1920.jpeg',
+              ),
+              fit: BoxFit.cover),
+        ));
+  }
+}
+
+class GridViewers3 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 250,
+        child: Expanded(
+          child: GridView.builder(
+              itemCount: 10,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              itemBuilder: (ctxt, index) {
+                return ThirdGrid();
+              }),
+        ));
+  }
+}
+
+class ThirdGrid extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: EdgeInsets.all(20.0),
+        decoration: BoxDecoration(
+            color: Colors.yellow[300],
+            border: Border.all(width: 4, color: Colors.grey[900]!)),
+        alignment: Alignment.center,
+        child: Column(mainAxisSize: MainAxisSize.min, children: [
+          Container(
+              child: Stack(
+                  alignment: Alignment.center,
+                  fit: StackFit.loose,
+                  children: <Widget>[
+                Container(
+                  padding: EdgeInsets.all(15),
+                  alignment: Alignment.center,
+                  color: Colors.blue.shade400,
+                  child: Text('Hello'),
+                ),
+                Container(
+                    padding: EdgeInsets.all(40),
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 4, color: Colors.black),
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          image: AssetImage(
+                            'assets/images/WallX_217106_1080x1920.jpeg',
+                          ),
+                          fit: BoxFit.cover),
+                      color: Colors.grey[900],
+                    ))
+              ]))
+        ]));
+  }
+}
