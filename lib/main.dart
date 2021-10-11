@@ -19,13 +19,15 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
+          label: Text('Next'),
+          icon: Icon(Icons.arrow_forward),
           onPressed: () {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => SecPage()));
           },
         ),
-        appBar: AppBar(),
+        appBar: AppBar(title: Text('First Page')),
         body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(children: [
@@ -175,7 +177,7 @@ class ThirdGrid extends StatelessWidget {
     return Container(
         margin: EdgeInsets.all(20.0),
         decoration: BoxDecoration(
-            color: Colors.yellow[300],
+            color: Colors.redAccent[400],
             border: Border.all(width: 4, color: Colors.grey[900]!)),
         alignment: Alignment.center,
         child: Column(mainAxisSize: MainAxisSize.min, children: [
@@ -187,7 +189,7 @@ class ThirdGrid extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.all(15),
                   alignment: Alignment.center,
-                  color: Colors.blue.shade400,
+                  color: Colors.cyan,
                   child: Text('Hello'),
                 ),
                 Container(
