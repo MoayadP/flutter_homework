@@ -18,39 +18,68 @@ class FirstPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (_) => SecPage()));
-          },
-        ),
-        appBar: AppBar(),
-        body: Column(
-          children: <Widget>[
-            Expanded(
-              child: GridViewers(),
+        child: Scaffold(
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (_) => SecPage()));
+              },
             ),
-          ],
-        ),
-      ),
-    );
+            appBar: AppBar(),
+            body: SingleChildScrollView(
+              child: Column(children: [
+                SizedBox(
+                  height: 25,
+                ),
+                Text(
+                  'First Grid',
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                GridViewers1(),
+                SizedBox(
+                  height: 25,
+                ),
+                Text(
+                  'Second Grid',
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                GridViewers1(),
+                SizedBox(
+                  height: 25,
+                ),
+                Text(
+                  'Third Grid',
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                GridViewers1(),
+              ]),
+            )));
   }
 }
 
-class GridViewers extends StatelessWidget {
+class GridViewers1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 3,
-      child: GridView.builder(
-          itemCount: 10,
-          gridDelegate:
-              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-          itemBuilder: (ctxt, index) {
-            return FirstGrid();
-          }),
-    );
+    return SizedBox(
+        height: 300,
+        child: Expanded(
+          child: GridView.builder(
+              itemCount: 10,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              itemBuilder: (ctxt, index) {
+                return FirstGrid();
+              }),
+        ));
   }
 }
 
@@ -87,34 +116,26 @@ class FirstGrid extends StatelessWidget {
   }
 }
 
-// class MyWidget extends StatelessWidget {
-//   final String title;
-//   final String content;
-//   MyWidget({required this.title, required this.content});
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       child: const Text('hi'),
-//     );
-//   }
-// }
+class GridViewers2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 300,
+        child: Expanded(
+          child: GridView.builder(
+              itemCount: 10,
+              gridDelegate:
+                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+              itemBuilder: (ctxt, index) {
+                return FirstGrid();
+              }),
+        ));
+  }
+}
 
-// class GridViewer extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Expanded(
-//       flex: 4,
-//       child: GridView.builder(
-//         itemCount: 5,
-//         gridDelegate:
-//             const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
-//         itemBuilder: (ctxt, index) {
-//           return MyWidget(
-//             title: 'hii',
-//             content: 'hiiii',
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
+class FirstGrid extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return
+  }
+}
