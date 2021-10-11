@@ -9,12 +9,16 @@ class SecPage extends StatelessWidget {
             floatingActionButton: FloatingActionButton.extended(
               label: Text('Next'),
               icon: Icon(Icons.arrow_forward),
+              backgroundColor: Colors.deepPurple[800],
               onPressed: () {
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (_) => ThirdPage()));
               },
             ),
-            appBar: AppBar(title: Text('Second Page')),
+            appBar: AppBar(
+              title: Text('Second Page'),
+              backgroundColor: Colors.deepPurple[800],
+            ),
             body: SingleChildScrollView(
               child: Column(children: [
                 ImageShower(),

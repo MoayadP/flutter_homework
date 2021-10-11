@@ -22,12 +22,16 @@ class FirstPage extends StatelessWidget {
         floatingActionButton: FloatingActionButton.extended(
           label: Text('Next'),
           icon: Icon(Icons.arrow_forward),
+          backgroundColor: Colors.deepPurple[800],
           onPressed: () {
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => SecPage()));
           },
         ),
-        appBar: AppBar(title: Text('First Page')),
+        appBar: AppBar(
+          title: Text('First Page'),
+          backgroundColor: Colors.deepPurple[800],
+        ),
         body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(children: [
